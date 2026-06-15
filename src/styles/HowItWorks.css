@@ -1,0 +1,110 @@
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.how-it-works {
+  padding: 120px 5%;
+  background: white;
+}
+
+.how-header {
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
+  margin-bottom: 80px;
+}
+
+.how-header span {
+  color: #ff6b00;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.how-header h2 {
+  font-size: 3rem;
+  color: #222;
+  margin: 15px 0;
+}
+
+.how-header p {
+  color: #666;
+  line-height: 1.8;
+}
+
+.steps-grid {
+  max-width: 1300px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.step-card {
+  text-align: center;
+
+  background: #fff8f3;
+
+  padding: 40px 30px;
+
+  border-radius: 30px;
+
+  transition: 0.3s ease;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.05);
+}
+
+.step-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow:
+    0 20px 40px rgba(255,107,0,0.12);
+}
+
+.step-number {
+  width: 80px;
+  height: 80px;
+
+  margin: auto;
+  margin-bottom: 25px;
+
+  border-radius: 50%;
+
+  background: #ff6b00;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.step-card h3 {
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.step-card p {
+  color: #666;
+  line-height: 1.8;
+}
+
+@media (max-width: 992px) {
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .how-header h2 {
+    font-size: 2rem;
+  }
+}

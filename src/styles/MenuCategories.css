@@ -1,0 +1,35 @@
+.menu-categories {
+  padding: 40px 5%;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  background: white;
+}
+
+.menu-categories button {
+  border: none;
+  cursor: pointer;
+
+  background: #fff8f3;
+
+  padding: 14px 25px;
+
+  border-radius: 50px;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.menu-categories button:hover {
+  background: #ff6b00;
+  color: white;
+}
+
+.menu-categories .active {
+  background: #ff6b00;
+  color: white;
+}

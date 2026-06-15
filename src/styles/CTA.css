@@ -1,0 +1,110 @@
+/* =========================
+   CTA SECTION
+========================= */
+
+.cta {
+  padding: 120px 5%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff6b00,
+      #ff8533
+    );
+
+  text-align: center;
+}
+
+.cta-container {
+  max-width: 900px;
+  margin: auto;
+
+  color: white;
+}
+
+.cta-container span {
+  display: inline-block;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 20px;
+}
+
+.cta-container h2 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+
+  margin-bottom: 25px;
+}
+
+.cta-container p {
+  max-width: 700px;
+
+  margin: auto;
+
+  line-height: 1.9;
+
+  color: rgba(255,255,255,0.9);
+
+  margin-bottom: 40px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cta-order-btn,
+.cta-call-btn {
+  border: none;
+  cursor: pointer;
+
+  padding: 16px 35px;
+
+  border-radius: 50px;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.cta-order-btn {
+  background: white;
+  color: #ff6b00;
+}
+
+.cta-order-btn:hover {
+  transform: translateY(-4px);
+}
+
+.cta-call-btn {
+  background: transparent;
+  border: 2px solid white;
+
+  color: white;
+}
+
+.cta-call-btn:hover {
+  background: white;
+  color: #ff6b00;
+}
+
+@media (max-width: 768px) {
+
+  .cta-container h2 {
+    font-size: 2.2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-order-btn,
+  .cta-call-btn {
+    width: 100%;
+  }
+}

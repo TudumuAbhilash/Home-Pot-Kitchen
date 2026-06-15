@@ -1,0 +1,190 @@
+/* =========================
+   CHEF SPECIAL
+========================= */
+
+.chef-special {
+  padding: 120px 5%;
+
+  background:
+  linear-gradient(
+    135deg,
+    #ff6b00,
+    #ff8533
+  );
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 60px;
+
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.chef-content {
+  color: white;
+}
+
+.chef-tag {
+  display: inline-block;
+
+  padding: 10px 18px;
+
+  border-radius: 50px;
+
+  background: rgba(255,255,255,0.15);
+
+  backdrop-filter: blur(10px);
+
+  font-weight: 600;
+
+  margin-bottom: 25px;
+}
+
+.chef-content h2 {
+  font-size: 4rem;
+  line-height: 1.1;
+
+  margin-bottom: 25px;
+}
+
+.chef-content p {
+  max-width: 600px;
+
+  line-height: 1.9;
+
+  margin-bottom: 35px;
+
+  color: rgba(255,255,255,0.9);
+}
+
+.offer-box {
+  display: flex;
+  gap: 40px;
+
+  margin-bottom: 40px;
+}
+
+.offer-box h3 {
+  font-size: 2rem;
+}
+
+.offer-box p {
+  margin-top: 5px;
+}
+
+.chef-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.special-btn,
+.menu-outline-btn {
+  border: none;
+  cursor: pointer;
+
+  padding: 16px 35px;
+
+  border-radius: 50px;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.special-btn {
+  background: white;
+  color: #ff6b00;
+}
+
+.special-btn:hover {
+  transform: translateY(-4px);
+}
+
+.menu-outline-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.menu-outline-btn:hover {
+  background: white;
+  color: #ff6b00;
+}
+
+.chef-image {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-circle {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.12);
+}
+
+.chef-image img {
+  position: relative;
+
+  width: 85%;
+  max-width: 500px;
+
+  border-radius: 30px;
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.25);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+
+  .chef-special {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .offer-box {
+    justify-content: center;
+  }
+
+  .chef-buttons {
+    justify-content: center;
+  }
+
+  .chef-content h2 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .chef-content h2 {
+    font-size: 2.2rem;
+  }
+
+  .offer-box {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .chef-buttons {
+    flex-direction: column;
+  }
+
+  .special-btn,
+  .menu-outline-btn {
+    width: 100%;
+  }
+}
