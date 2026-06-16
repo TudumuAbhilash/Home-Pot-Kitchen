@@ -1,0 +1,34 @@
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.analytics-header select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.analytics-charts {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+
+  margin-top: 30px;
+}
+
+.chart-card {
+  background: white;
+
+  border-radius: 16px;
+
+  padding: 20px;
+
+  box-shadow:
+    0 4px 15px rgba(0,0,0,0.08);
+}

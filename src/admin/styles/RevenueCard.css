@@ -1,0 +1,25 @@
+.revenue-card {
+  background: linear-gradient(
+    135deg,
+    #f97316,
+    #ea580c
+  );
+
+  color: white;
+
+  border-radius: 16px;
+
+  padding: 30px;
+
+  box-shadow:
+    0 4px 15px rgba(0,0,0,0.1);
+}
+
+.revenue-card h1 {
+  margin: 20px 0;
+  font-size: 42px;
+}
+
+.revenue-card p {
+  opacity: 0.9;
+}

@@ -1,0 +1,42 @@
+.customers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.customers-header input {
+  width: 320px;
+  padding: 12px;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.customers-table-wrapper {
+  background: white;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 4px 15px rgba(0,0,0,0.08);
+}
+
+.customers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.customers-table th {
+  background: #f9fafb;
+  padding: 16px;
+  text-align: left;
+}
+
+.customers-table td {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}

@@ -1,0 +1,93 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+.modal-container {
+  width: 600px;
+  background: white;
+
+  border-radius: 20px;
+
+  padding: 25px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.close-btn {
+  border: none;
+  background: none;
+
+  font-size: 24px;
+
+  cursor: pointer;
+}
+
+.menu-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.menu-form input,
+.menu-form textarea,
+.menu-form select {
+  padding: 12px;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  font-size: 15px;
+}
+
+.menu-form textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.save-btn {
+  background: #f97316;
+  color: white;
+
+  border: none;
+
+  padding: 14px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+.image-preview {
+  width: 120px;
+  height: 120px;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+
+  border: 2px solid #eee;
+}

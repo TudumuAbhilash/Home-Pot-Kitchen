@@ -1,0 +1,23 @@
+.customer-modal {
+  width: 500px;
+
+  background: white;
+
+  border-radius: 16px;
+
+  padding: 25px;
+}
+
+.customer-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.customer-info p {
+  padding: 12px;
+  background: #f9fafb;
+
+  border-radius: 10px;
+}

@@ -1,0 +1,23 @@
+.top-dishes {
+  background: white;
+
+  padding: 20px;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 4px 15px rgba(0,0,0,0.08);
+}
+
+.dish-row {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 14px 0;
+
+  border-bottom: 1px solid #eee;
+}
+
+.dish-row:last-child {
+  border-bottom: none;
+}

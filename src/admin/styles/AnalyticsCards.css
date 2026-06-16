@@ -1,0 +1,34 @@
+.analytics-cards {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px,1fr));
+
+  gap: 20px;
+}
+
+.analytics-card {
+  transition: 0.3s;
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 4px 15px rgba(0,0,0,0.08);
+}
+
+.analytics-card h4 {
+  color: gray;
+}
+
+.analytics-card h2 {
+  margin-top: 10px;
+
+  color: #111827;
+}
+
+.analytics-card:hover {
+  transform: translateY(-5px);
+}
