@@ -1,0 +1,37 @@
+.contact-map {
+  padding: 120px 8%;
+}
+
+.map-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.map-header span {
+  color: #ff6b00;
+  font-weight: 700;
+}
+
+.map-header h2 {
+  margin-top: 15px;
+  font-size: 3rem;
+}
+
+.map-placeholder {
+  max-width: 1200px;
+  margin: auto;
+
+  height: 450px;
+
+  background: #f5f5f5;
+
+  border-radius: 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}

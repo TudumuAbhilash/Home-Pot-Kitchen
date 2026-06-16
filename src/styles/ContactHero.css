@@ -1,0 +1,45 @@
+.contact-hero {
+  height: 60vh;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.65),
+      rgba(0,0,0,0.65)
+    ),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-content {
+  text-align: center;
+  color: white;
+}
+
+.contact-content span {
+  color: #ff6b00;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.contact-content h1 {
+  font-size: 4rem;
+  margin: 20px 0;
+}
+
+.contact-content p {
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .contact-content h1 {
+    font-size: 2.5rem;
+  }
+}

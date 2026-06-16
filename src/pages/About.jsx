@@ -5,6 +5,7 @@ import KitchenStandards from "../components/KitchenStandards";
 import Footer from "../components/Footer";
 import MeetKitchen from "../components/MeetKitchen";
 import AboutTestimonials from "../components/AboutTestimonials";
+import AboutStats from "../components/AboutStats";
 
 function About() {
   return (
@@ -18,8 +19,10 @@ function About() {
       <KitchenStandards />
 
       <MeetKitchen />
-      
+
       <AboutTestimonials />
+
+      <AboutStats />
 
       <Footer />
     </>
