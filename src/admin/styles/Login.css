@@ -53,3 +53,13 @@
 
   cursor: pointer;
 }
+
+.login-error {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 600;
+}

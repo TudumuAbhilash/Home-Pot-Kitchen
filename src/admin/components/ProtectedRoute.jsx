@@ -1,24 +1,17 @@
-import {
-  Navigate,
-} from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { useAdminAuth } from "../../context/AdminAuthContext";
 
-import {
-  useAdminAuth,
-} from "../context/AdminAuthContext";
+function ProtectedRoute({ children }) {
+  const { token } = useAdminAuth();
+  const storedToken = localStorage.getItem("token");
 
-function ProtectedRoute({
-  children,
-}) {
-  const { admin } =
-    useAdminAuth();
+  const isAuthenticated = !!(token || storedToken);
 
-  return admin
-    ? children
-    : (
-      <Navigate
-        to="/admin/login"
-      />
-    );
+  if (!isAuthenticated) {
+    return <Navigate to="/admin/login" replace />;
+  }
+
+  return children;
 }
 
 export default ProtectedRoute;

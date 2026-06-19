@@ -5,6 +5,9 @@ import "../styles/Navbar.css";
 import { useCart } from "../context/CartContext";
 import CartDrawer from "./CartDrawer";
 
+import { useAdminAuth } from "../context/AdminAuthContext";
+import { useNavigate } from "react-router-dom";
+
 function Navbar() {
   const location = useLocation();
 
@@ -18,6 +21,14 @@ function Navbar() {
   const [cartOpen, setCartOpen] = useState(false);
 
   const { totalItems } = useCart();
+
+  const { logout } = useAdminAuth();
+const navigate = useNavigate();
+
+const handleLogout = () => {
+  logout();
+  navigate("/admin/login");
+};
 
   useEffect(() => {
     const handleScroll = () => {

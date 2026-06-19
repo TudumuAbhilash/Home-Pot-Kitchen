@@ -1,0 +1,65 @@
+.kitchen-page {
+  padding: 20px;
+  background: #0f172a;
+  min-height: 100vh;
+  color: white;
+}
+
+.kitchen-page h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.kitchen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.kitchen-card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 6px solid #f97316;
+}
+
+.kitchen-card h2 {
+  margin-bottom: 10px;
+}
+
+.items {
+  margin-top: 10px;
+  padding: 10px;
+  background: #0f172a;
+  border-radius: 8px;
+}
+
+.item {
+  margin-bottom: 5px;
+}
+
+.actions button {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.actions button:hover {
+  opacity: 0.9;
+}
+
+.status {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.status.pending {
+  color: #f59e0b;
+}
+
+.status.preparing {
+  color: #3b82f6;
+}

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "../styles/ProfileDropdown.css";
-import { useAdminAuth, } from "../context/AdminAuthContext";
-import { useNavigate, } from "react-router-dom";
+import { useAdminAuth } from "../../context/AdminAuthContext";import { useNavigate, } from "react-router-dom";
 
 function ProfileDropdown() {
   const [open, setOpen] =

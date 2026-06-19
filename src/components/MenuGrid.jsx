@@ -1,58 +1,54 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import "../styles/MenuGrid.css";
-
-import biryani from "../assets/biryani.jpg";
-import paneer from "../assets/paneer.jpg";
-import meal from "../assets/meal.jpg";
-
 import { useCart } from "../context/CartContext";
 
 function MenuGrid() {
   const [activeCategory, setActiveCategory] = useState("Biryani");
   const { addToCart } = useCart();
 
-  const menuItems = [
-    {
-      id: 1,
-      name: "Chicken Dum Biryani",
-      category: "Biryani",
-      price: "₹249",
-      image: biryani,
-      rating: "4.9",
-    },
-    {
-      id: 2,
-      name: "Paneer Biryani",
-      category: "Biryani",
-      price: "₹219",
-      image: paneer,
-      rating: "4.8",
-    },
-    {
-      id: 3,
-      name: "South Indian Meal",
-      category: "Meals",
-      price: "₹179",
-      image: meal,
-      rating: "4.7",
-    },
-    {
-      id: 4,
-      name: "Veg Meal",
-      category: "Meals",
-      price: "₹149",
-      image: meal,
-      rating: "4.6",
-    },
-  ];
+  const [menuItems, setMenuItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const filteredItems = menuItems.filter(
-    (item) => item.category === activeCategory
-  );
+  // FETCH DATA FROM STRAPI
+  useEffect(() => {
+    fetchMenu();
+  }, []);
+
+  const fetchMenu = async () => {
+    try {
+      const res = await axios.get(
+        "http://localhost:1337/api/menus?populate=*"
+      );
+
+      // IMPORTANT: Strapi v5 sometimes returns flat structure OR nested
+      const data = res.data?.data || [];
+
+      setMenuItems(data);
+      setLoading(false);
+    } catch (error) {
+      console.log("Error fetching menu:", error);
+      setLoading(false);
+    }
+  };
+
+  if (loading) return <h2>Loading menu...</h2>;
+
+  // SAFE CATEGORY FILTER
+  const filteredItems = menuItems.filter((item) => {
+    const category = item?.category || item?.attributes?.category;
+
+    return (
+      category &&
+      category.toLowerCase().trim() ===
+        activeCategory.toLowerCase().trim()
+    );
+  });
 
   return (
     <section className="menu-grid-section">
 
+      {/* FILTER BUTTONS */}
       <div className="menu-filter">
 
         <button
@@ -69,40 +65,88 @@ function MenuGrid() {
           🥘 Meals
         </button>
 
+        <button
+          className={activeCategory === "Main Course" ? "active" : ""}
+          onClick={() => setActiveCategory("Main Course")}
+        >
+          🍽️ Main Course
+        </button>
+
       </div>
 
+      {/* MENU GRID */}
       <div className="menu-grid">
 
-        {filteredItems.map((item) => (
-          <div className="menu-card" key={item.id}>
+        {filteredItems.length === 0 ? (
+          <p>No items found in this category</p>
+        ) : (
+          filteredItems.map((item) => {
 
-            <div className="menu-image">
-              <img src={item.image} alt={item.name} />
-            </div>
+            // SUPPORT BOTH STRAPI V4 AND V5
+            const data = item?.attributes || item;
 
-            <div className="menu-content">
+            if (!data) return null;
 
-              <h3>{item.name}</h3>
+            return (
+              <div className="menu-card" key={item.id}>
 
-              <div className="menu-rating">
-                ⭐ {item.rating}
+                {/* IMAGE */}
+                <div className="menu-image">
+                  <img
+                    src={
+                      data.image?.data?.attributes?.url
+                        ? `http://localhost:1337${data.image.data.attributes.url}`
+                        : data.image?.url
+                        ? `http://localhost:1337${data.image.url}`
+                        : "https://via.placeholder.com/300"
+                    }
+                    alt={data.name || "menu item"}
+                  />
+                </div>
+
+                {/* CONTENT */}
+                <div className="menu-content">
+
+                  <h3>{data.name}</h3>
+
+                  <p className="menu-desc">
+                    {data.description}
+                  </p>
+
+                  <div className="menu-rating">
+                    ⭐ 4.5
+                  </div>
+
+                  <div className="menu-bottom">
+
+                    <span>₹{data.price}</span>
+
+                   <button
+  onClick={() =>
+    addToCart({
+      id: item.id,
+      name: data.name,
+      price: Number(data.price),
+      image:
+        data.image?.data?.attributes?.url
+          ? `http://localhost:1337${data.image.data.attributes.url}`
+          : data.image?.url
+          ? `http://localhost:1337${data.image.url}`
+          : "",
+    })
+  }
+>
+  Add To Cart
+</button>
+
+                  </div>
+
+                </div>
+
               </div>
-
-              <div className="menu-bottom">
-
-                <span>{item.price}</span>
-
-               <button
-               onClick={() => addToCart(item)}>
-               Add To Cart
-               </button>
-
-              </div>
-
-            </div>
-
-          </div>
-        ))}
+            );
+          })
+        )}
 
       </div>
 

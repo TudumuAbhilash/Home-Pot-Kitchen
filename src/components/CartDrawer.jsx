@@ -1,5 +1,6 @@
 import "../styles/CartDrawer.css";
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 function CartDrawer({ isOpen, onClose }) {
   const {
@@ -8,13 +9,19 @@ function CartDrawer({ isOpen, onClose }) {
   decreaseQuantity,
 } = useCart();
 
+  console.log("DRAWER CART:", cartItems);
+
   const totalPrice = cartItems.reduce(
-    (total, item) =>
-      total +
-      parseInt(item.price.replace("₹", "")) *
-        item.quantity,
-    0
-  );
+  (total, item) => {
+    const price =
+      typeof item.price === "string"
+        ? Number(item.price.replace("₹", ""))
+        : Number(item.price);
+
+    return total + price * item.quantity;
+  },
+  0
+);
 
   const deliveryFee =
   cartItems.length > 0 ? 40 : 0;
@@ -77,7 +84,7 @@ function CartDrawer({ isOpen, onClose }) {
 
             <h4>{item.name}</h4>
 
-            <p>{item.price}</p>
+            <p>₹{item.price}</p>
 
         </div>
 
@@ -132,12 +139,7 @@ function CartDrawer({ isOpen, onClose }) {
             <span>₹{grandTotal}</span>
           </div>
 
-          <a
-           href="/checkout"
-           className="checkout-btn"
-          >
-           Proceed To Checkout
-          </a>
+          <Link to="/checkout" className="checkout-btn"> Proceed To Checkout</Link>
         </div>
       </div>
     </>

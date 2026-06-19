@@ -2,10 +2,15 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/OrderSuccess.css";
+import { useSearchParams } from "react-router-dom";
+
 
 function OrderSuccess() {
-  const orderId =
-    "HPK-" + Math.floor(100000 + Math.random() * 900000);
+ const [searchParams] =
+  useSearchParams();
+
+const orderId =
+  searchParams.get("orderId");
 
   return (
     <>
@@ -32,7 +37,13 @@ function OrderSuccess() {
 
             <div>
               <span>Order ID</span>
+              {orderId ? (
               <h3>{orderId}</h3>
+               ) : (
+  <h3 style={{ color: "gray" }}>
+    No order ID found
+  </h3>
+              )}
             </div>
 
             <div>

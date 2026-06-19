@@ -1,15 +1,16 @@
 import "../styles/RevenueCard.css";
 
-function RevenueCard() {
+function RevenueCard({
+  revenue = 0,
+  totalOrders = 0,
+}) {
   return (
     <div className="revenue-card">
+      <h3>Total Revenue</h3>
 
-      <h3>Today's Revenue</h3>
+      <h1>₹{revenue.toLocaleString()}</h1>
 
-      <h1>₹12,450</h1>
-
-      <p>+15% from yesterday</p>
-
+      <p>{totalOrders} Orders Received</p>
     </div>
   );
 }

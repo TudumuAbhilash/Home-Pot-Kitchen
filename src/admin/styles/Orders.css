@@ -2,6 +2,7 @@
   width: 100%;
 }
 
+/* HEADER */
 .page-header {
   margin-bottom: 20px;
 }
@@ -10,6 +11,7 @@
   color: #111827;
 }
 
+/* TOOLBAR */
 .orders-toolbar {
   display: flex;
   justify-content: space-between;
@@ -19,27 +21,22 @@
 .orders-toolbar input {
   width: 350px;
   padding: 12px;
-
   border: 1px solid #ddd;
   border-radius: 10px;
 }
 
 .orders-toolbar select {
   padding: 12px;
-
   border: 1px solid #ddd;
   border-radius: 10px;
 }
 
+/* TABLE */
 .orders-table-container {
   background: white;
-
   border-radius: 16px;
-
   overflow: hidden;
-
-  box-shadow:
-    0 4px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .orders-table {
@@ -58,25 +55,83 @@
   border-bottom: 1px solid #eee;
 }
 
+/* BUTTONS */
 .view-btn {
   border: none;
   background: #2563eb;
   color: white;
-
   padding: 8px 15px;
   border-radius: 8px;
-
   cursor: pointer;
   margin-right: 8px;
+  transition: 0.2s;
+}
+
+.view-btn:hover {
+  background: #1d4ed8;
 }
 
 .edit-btn {
   border: none;
   background: #f97316;
   color: white;
-
   padding: 8px 15px;
   border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
+.edit-btn:hover {
+  background: #ea580c;
+}
+
+/* STATUS */
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.pending { background: #fff3cd; }
+.status.preparing { background: #cfe2ff; }
+.status.ready { background: #d1e7dd; }
+.status.delivered { background: #d4edda; }
+.status.cancelled { background: #f8d7da; }
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 500px;
+  max-width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: pop 0.2s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+  margin-top: 15px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
   cursor: pointer;
 }

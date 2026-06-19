@@ -1,20 +1,40 @@
-import { Outlet } from "react-router-dom";
-import AdminSidebar from "../components/AdminSidebar";
-import AdminNavbar from "../components/AdminNavbar";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { useAdminAuth } from "../../context/AdminAuthContext";
 import "../styles/AdminLayout.css";
 
 function AdminLayout() {
+  const { logout } = useAdminAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/admin/login");
+  };
+
   return (
     <div className="admin-layout">
-      <AdminSidebar />
 
-      <div className="admin-main">
-        <AdminNavbar />
+      {/* SIDEBAR */}
+      <div className="sidebar">
+        <h2>🍽️ HomePot Admin</h2>
 
-        <div className="admin-content">
-          <Outlet />
-        </div>
+        <nav>
+          <Link to="/admin">Dashboard</Link>
+          <Link to="/admin/analytics">Analytics</Link>
+          <Link to="/admin/orders">Orders</Link>
+          <Link to="/admin/menu">Menu</Link>
+        </nav>
+
+        <button onClick={handleLogout}>
+          Logout
+        </button>
       </div>
+
+      {/* MAIN CONTENT */}
+      <div className="main-content">
+        <Outlet />
+      </div>
+
     </div>
   );
 }
